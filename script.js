@@ -40,4 +40,42 @@ addTodo.addEventListener("click", function (avent) {
   todoList.appendChild(todoItem);
 
   document.querySelector("#userInput").value = "";
+
+
+  const finishButton = document.createElement("button");
+
+  finishButton.textContent = "ferdig";
+  
+  todoItem.appendChild(finishButton);
+
+  finishButton.addEventListener("click", function() {
+    console.log("Ferdig kapp er trukket");
+
+    if(todoItem.classList.contains("finished")) {
+      todoItem.classList.remove("finished")
+    } else {
+
+    todoItem.classList.add("finished");
+    }
+
+  });
+
+  const deleteButton = document.createElement("button");
+
+  deleteButton.textContent = "Slett";
+
+  todoItem.appendChild(deleteButton);
+
+  deleteButton.addEventListener("click", function() {
+    console.log("Slett knapp er trukket");
+    
+    if(todoItem.classList.contains("finished")) {
+      todoItem.remove()
+     } else{
+      alert("Gjøremålet må markeres ferdig før sletting")
+     }
+
+  });
+
 });
+
